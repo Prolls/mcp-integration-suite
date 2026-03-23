@@ -9,6 +9,9 @@ import { logInfo } from "../serverUtils";
 import { registerMappingsHandler } from "./mappings";
 import { registerMappingsExampleHandler } from "./mappings/examples";
 import { registerDocsHandlers } from "./docs";
+import { registerB2BHandlers } from "./b2b";
+import { registerEventMeshHandlers } from "./eventmesh";
+import { registerApimHandlers } from "./apim";
 
 const registerDefaultMiddleware = (server: McpServerWithMiddleware) => {
 	server.use(async(next, name, params) => {
@@ -32,5 +35,8 @@ export const registerAllHandlers = (server: McpServerWithMiddleware) => {
 	registerMappingsHandler(server);
 	registerMappingsExampleHandler(server);
 	registerDocsHandlers(server);
+	registerB2BHandlers(server);
+	registerEventMeshHandlers(server);
+	registerApimHandlers(server);
 };
 
